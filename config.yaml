@@ -1,0 +1,21 @@
+---
+id: fast-fulltext-search-in-ruby-groonga-rroonga-droonga
+base_name: fast-fulltext-search-in-ruby-groonga-rroonga-droonga
+tags:
+- droonga
+- groonga
+presentation_date: 2015/02/12
+version: 2015.02.12.0
+licenses: []
+slideshare_id: fastfulltextsearchinrubygroongarroongadroonga
+speaker_deck_id: 
+ustream_id: 
+vimeo_id: 
+youtube_id: 
+author:
+  markup_language: :markdown
+  name: 結城洋志
+  email: yuki@clear-code.com
+  rubygems_user: Piro
+  slideshare_user: pirooutsiderreflex
+  speaker_deck_user: 
