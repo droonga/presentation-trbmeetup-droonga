@@ -16,14 +16,107 @@ allotted_time
 theme
 :   groonga
 
-# Fulltext search in Ruby?
+
+# Introduction
+
+How to do fulltext search
+for huge database in Ruby?
+
+# `LIKE` operator in SQL
+
+~~~
+SELECT name,location
+  FROM Store
+ WHERE name LIKE '%Tokyo%';
+~~~
+
+ * Easy, simple
+ * Slow
+
+# Fulltext search with indexing
+
+![](images/latency.png){:relative_width="50" align="right"}
+
+ * Fast
+
+# 10000 records from Wikipedia(ja)
+
+ * Simple `LIKE`: 1.3sec. per query
+ * Fulltext search: 0.02-0.07sec. per query
+ * *x20 faster!!*
+
+# How introduce into your Ruby product?
+
+[Sunspot](http://sunspot.github.io/)
+: http://sunspot.github.io/
+
+[elasticsearch-ruby](https://github.com/elasticsearch/elasticsearch-ruby)
+: https://github.com/elasticsearch/elasticsearch-ruby
+
+# Sunspot?
+
+A binding of *Solr* for
+Ruby and Rails (ActiveRecord)
+
+~~~
+class Post < ActiveRecord::Base
+  searchable do
+    ...
+  end
+end
+
+result = Post.search do
+  fulltext 'best pizza'
+  ...
+end
+~~~
+
+# elasticsearch-ruby?
+
+A client library of *Elasticsearch* for Ruby
+
+~~~
+client = Elasticsearch::Client.new(log: true)
+client.transport.reload_connections!
+client.cluster.health
+client.search(q: "test")
+~~~
+
+# But...
+
+ * [Apache Solr](http://lucene.apache.org/solr/): "built on Apache Lucene™."
+ * [Elasticsearch](http://www.elasticsearch.org/overview/elasticsearch/): "Build on top of Apache Lucene™"
+ * [Apache Lucene](http://lucene.apache.org/): "written entirely *in Java*."
+
+# In short
+
+ * Both sunspot and elasticsearch-ruby require *Java*.
+ * My Ruby product have to be combined with *Java*, to do fulltext search.
+
+# Alternative choice
+
+*Groonga*
+and *Rroonga*
+
+# Groonga?
+
+ * Fast fulltext search engine written in *C++*
+
+# Rroonga?
+
+ * Low-level binding of Groonga for *Ruby*
 
 
-  * タイトル
-    * 日本語:
-      Javaいらず！Rubyで高速全文検索 -Groonga, Rroonga, Droonga-
-    * 英語:
-      Fast full-text search in Ruby, without Java -Groonga, Rroonga and Droonga-
+
+
+
+
+# Droonga
+
+
+# a
+
+
 
   * 内容
     * 日本語:
@@ -33,23 +126,6 @@ theme
       Describe how to do full-text search for huge database
       in Ruby, with Groonga, Rroonga and Droonga, instead of
       using full-text search engine based on Java.
-
-  * スピーカープロファイル:
-    * 日本語:
-      * 名前: 結城 洋志
-      * 自己紹介:
-        Droongaを開発したり、「Tree Style Tab（ツリー型タブ）」「Text Link（テキ
-        ストリンク）」などのFirefox用アドオンを開発したり、日経Linux誌で技術解説
-        マンガを連載したりしています。
-        株式会社クリアコード所属。
-    * 英語:
-      * 名前: YUKI Hiroshi
-      * 自己紹介:
-        Officially, a developer of the Droonga project team, as an employee of
-        ClearCode Inc.
-        Personally, a developer of some Firefox add-ons, "Tree Style Tab", "Text
-        Link", etc., and an author of a regular feature comic "Syskan-kei Joshi
-        (System-administrator Girl)" on "Nikkei Linux".
 
 概要：
 大量のデータに対してRubyで高速に全文検索する方法について、
