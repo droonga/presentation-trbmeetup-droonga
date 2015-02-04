@@ -101,17 +101,96 @@ and *Rroonga*
 # Groonga?
 
  * Fast fulltext search engine written in *C++*
+ * Read/write lock-free
+ * Originally developed to search too much increasing comments like Twitter
 
 # Rroonga?
 
- * Low-level binding of Groonga for *Ruby*
+ * Low-level binding of Groonga for *Ruby* (including a Ruby native extension)
+ * Available for your applications like as "better SQLite"
+
+# Installation of Rroonga
+
+~~~
+% sudo gem install rroonga
+~~~
+
+# Usage of Rroonga
+
+Schema definition
+
+~~~
+require "groonga"
+
+Groonga::Database.create(path: "/tmp/bookmark.db")
+Groonga::Schema.create_table("Items",
+                             type:     :hash,
+                             key_type: "ShortText") do |table|
+  table.text("title")
+end
+Groonga::Schema.create_table("Terms",
+                             type:              :patricia_trie,
+                             normalizer:        :NormalizerAuto,
+                             default_tokenizer: "TokenBigram") do |table|
+ table.index("Items.title")
+end
+~~~
+
+# Usage of Rroonga
+
+Data loading
+
+~~~
+require "groonga"
+
+Groonga::Database.open("/tmp/bookmark.db")
+
+items = Groonga["Items"]
+items.add("http://en.wikipedia.org/wiki/Ruby",
+          title: "Wikipedia")
+items.add("http://www.ruby-lang.org/",
+          title: "Ruby")
+~~~
+
+# Usage of Rroonga
+
+Fulltext search
+
+~~~
+require "groonga"
+
+Groonga::Database.open("/tmp/bookmark.db")
+
+items = Groonga["Items"]
+ruby_items = items.select do |record|
+  record.title =~ "Ruby"
+end
+~~~
 
 
+# Moreover...
+
+Droonga
+: * Distributed data processing engine based on Rroonga.
+  * Compatible to Groonga's HTTP server interface.
+  * Client library for Ruby (`droonga-client`) is available.
 
 
+# Moreover...
 
+GrnMini
+: * Simplified wrapper for Rroonga.
+  * Very easy to use.
 
-# Droonga
+~~~
+require "grn_mini"
+
+array = GrnMini::Array.new("test.db")
+array.add(text: "aaa", number: 1)
+array << {text: "bbb", number: 2}
+array << {text: "ccc", number: 3}
+array.size  #=> 3
+~~~
 
 
 # a
