@@ -17,10 +17,18 @@ theme
 :   groonga
 
 
+
+# Abstract
+
+ * Fulltext search?
+ * Groonga and Rroonga
+   - easy fulltext search in Ruby
+ * Droonga
+   - scalable fulltext search
+
 # Introduction
 
-How to do fulltext search
-for huge database in Ruby?
+What's *fulltext search*?
 
 # `LIKE` operator in SQL
 
@@ -37,9 +45,9 @@ SELECT name,location
 
 ![](images/latency.png){:relative_width="50" align="right"}
 
- * Fast
+ * Fast!!
 
-# 10000 records from Wikipedia(ja)
+# 10,000 records from Wikipedia(ja)
 
  * Simple `LIKE`: 1.3sec. per query
  * Fulltext search: 0.02-0.07sec. per query
@@ -47,10 +55,10 @@ SELECT name,location
 
 # How introduce into your Ruby product?
 
-[Sunspot](http://sunspot.github.io/)
+Sunspot
 : http://sunspot.github.io/
 
-[elasticsearch-ruby](https://github.com/elasticsearch/elasticsearch-ruby)
+elasticsearch-ruby
 : https://github.com/elasticsearch/elasticsearch-ruby
 
 # Sunspot?
@@ -98,18 +106,23 @@ client.search(q: "test")
 *Groonga*
 and *Rroonga*
 
-# Groonga?
+# Groonga
 
  * Fast fulltext search engine written in *C++*
+ * Realtime indexing
  * Read/write lock-free
- * Originally developed to search too much increasing comments like Twitter
+ * Originally designed to search increasing huge numbers of comments (like Twitter)
 
-# Rroonga?
+# *R*roonga
 
  * Low-level binding of Groonga for *Ruby* (including a Ruby native extension)
  * Available for your applications like as "better SQLite"
 
-# Installation of Rroonga
+# Groonga and Rroonga
+
+![](images/groonga-rroonga.png){:relative_height="80"}
+
+# Usage of Rroonga
 
 ~~~
 % sudo gem install rroonga
@@ -167,74 +180,57 @@ ruby_items = items.select do |record|
 end
 ~~~
 
+# FYI: GrnMini
 
-# Moreover...
-
-Droonga
-: * Distributed data processing engine based on Rroonga.
-  * Compatible to Groonga's HTTP server interface.
-  * Client library for Ruby (`droonga-client`) is available.
+ * Lightweight wrapper for Rroonga
+ * Limited features, easy to use
+ * Good first step to try fulltext search on your Ruby product
 
 
-# Moreover...
-
-GrnMini
-: * Simplified wrapper for Rroonga.
-  * Very easy to use.
+# FYI: GrnMini
 
 ~~~
 require "grn_mini"
 
-array = GrnMini::Array.new("test.db")
-array.add(text: "aaa", number: 1)
-array << {text: "bbb", number: 2}
-array << {text: "ccc", number: 3}
-array.size  #=> 3
+GrnMini::create_or_open("/tmp/bookmarks.db")
+
+items = GrnMini::Array.new("Items")
+items << { url:   "http://en.wikipedia.org/wiki/Ruby",
+           title: "Wikipedia" }
+items << { url:   "http://www.ruby-lang.org/",
+           title: "Ruby" }
+
+ruby_items = items.select("title:Ruby")
 ~~~
 
+# *D*roonga
 
-# a
+Groonga
+: works with single process on a computer
 
+*D*roonga
+: works with multiple computers constructiong a Droonga cluster
 
+# Droonga
 
-  * 内容
-    * 日本語:
-      Javaを使わずに大量のデータに対してRubyで高速に全文検索する方
-      法としてGroonga/Rroonga/Droongaを使うやり方を紹介する。
-    * 英語:
-      Describe how to do full-text search for huge database
-      in Ruby, with Groonga, Rroonga and Droonga, instead of
-      using full-text search engine based on Java.
+![](images/droonga.png){:relative_width="80"}
 
-概要：
-大量のデータに対してRubyで高速に全文検索する方法について、
-Javaベースの検索エンジンであるSolrを使わない別のやり方として
-Groonga/Rroonga/Droongaを使うやり方を紹介する。
+# Droonga
 
+ * Scalable (replication + partitioning)
+ * Compatible to Groonga's HTTP interface
+ * Client library for Ruby (`droonga-client`) is available
 
+# Droonga
 
-Rubyで何か作るならPure Rubyで作りたい！
-JavaをRubyで呼び出すのは気持ち悪い！
-そんなあなたにGroonga/Rroonga/Droonga。
+![](images/droonga-throughput.png){:relative_height="90"}
 
-Let's try rapid text search in Ruby with Droonga/Rroonga/Groonga (without Solr)
+# Usage of Droonga
 
-text search ("LIKE" in SQL) is slow for huge databases.
+TBD
 
-Sunspot: binding of Solr for Ruby and Rails
-rapid text search
-but... Solr is based on Java.
+# References
 
-Rroonga/Droonga is based on Ruby, with libgroonga.
-Java-free! Yeah!
-
-libgroonga: full-featured text search engine library in C/C++
-Groonga: simple front end for libgroonga (provide CLI and HTTP server)
-Rroonga: binding of libgroonga for Ruby (provide low layer APIs)
-Droonga: distributed full-featured text search engine based on Rroonga/libgroonga written in Ruby (replication and partitioning (sharding))
-ActiveGroonga: ActiveRecord-like implementation for Groonga
-
-Groonga is originally developed by MORI Daijiro, for a search service about "2ch": a major anonoymous online forum in Japan.
-Because there are many many posts in every seconds, Groonga is designed to work with realtime indexing without reference lock.
-Groonga has no transaction mechanism.
+Comparison of PostgreSQL, pg_bigm and PGroonga
+: http://blog.createfield.com/entry/2015/02/03/094940
 
