@@ -150,15 +150,21 @@ and
 # Groonga
 
  * Fast fulltext search engine written in *C++*
- * Realtime indexing
- * Read/write lock-free
  * Originally designed to search increasing huge numbers of comments (like Twitter)
+
+# Groonga
+
+ * Realtime indexing
+   * Read/write lock-free
+   * Parallel updating and searching, without penalty
+   * Returns latest contents ASAP
+ * No transaction, fragile
 
 # Groonga
 
 Different usecases
 
-Groonga
+Groonga as a server
 : * Command line tool
   * HTTP server
 
