@@ -45,7 +45,7 @@ SELECT name,location
 
 # Fulltext search with index
 
-![](images/latency.png){:relative_width="50" align="right"}
+![](images/latency.png){:relative_width="60" align="right"}
 
  * Fast!!
 
@@ -133,13 +133,14 @@ client.search(q: "test")
 
 # In short
 
- * Both sunspot and elasticsearch-ruby require *Java*.
- * My Ruby product have to be combined with *Java*, to do fulltext search.
+ * They require *Java*.
+ * My Ruby product have to be combined with *Java*, just for fulltext search.
 
 # Alternative choice
 
 *Groonga*
-and *Rroonga*
+and
+*Rroonga*
 
 # Groonga
 
@@ -157,18 +158,19 @@ Groonga
   * HTTP server
 
 libgroonga
-: * In-process database library
+: * In-process library
 
 
 # *R*roonga
 
  * Based on libgroonga
- * Low-level binding of Groonga for *Ruby* (including a Ruby native extension)
- * Available for your applications like as "better SQLite"
+ * Low-level binding of Groonga for *Ruby*
+ * Works like as "better SQLite"
+   for your application
 
 # Groonga and Rroonga
 
-![](images/groonga-rroonga.png){:relative_height="80"}
+![](images/groonga-rroonga.png){:relative_height="90"}
 
 # Usage of Rroonga
 
@@ -267,9 +269,12 @@ Groonga
 
 # Droonga
 
- * Scalable (replication + partitioning)
- * Compatible to Groonga's HTTP interface
- * Client library for Ruby (`droonga-client`) is available
+ * Scalable
+   (replication + partitioning)
+ * Groonga compatible
+   HTTP interface
+ * Client library for Ruby
+   (`droonga-client`)
 
 # Droonga
 
