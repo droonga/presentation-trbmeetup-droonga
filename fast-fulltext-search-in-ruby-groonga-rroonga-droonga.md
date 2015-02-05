@@ -125,11 +125,19 @@ client.cluster.health
 client.search(q: "test")
 ~~~
 
+# Relations of services
+
+![](images/application-with-index.png){:relative_width="80"}
+
 # But...
 
  * [Apache Solr](http://lucene.apache.org/solr/): "built on Apache Lucene™."
  * [Elasticsearch](http://www.elasticsearch.org/overview/elasticsearch/): "Build on top of Apache Lucene™"
  * [Apache Lucene](http://lucene.apache.org/): "written entirely *in Java*."
+
+# Java!!
+
+![](images/application-with-index-java.png){:relative_width="80"}
 
 # In short
 
@@ -171,6 +179,10 @@ libgroonga
 # Groonga and Rroonga
 
 ![](images/groonga-rroonga.png){:relative_height="90"}
+
+# Relations of services
+
+![](images/application-with-groonga.png){:relative_width="80"}
 
 # Usage of Rroonga
 
