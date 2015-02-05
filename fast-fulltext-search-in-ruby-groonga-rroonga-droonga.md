@@ -43,7 +43,7 @@ SELECT name,location
 
  * easy, simple, but *slow*
 
-# Fulltext search with indexing
+# Fulltext search with index
 
 ![](images/latency.png){:relative_width="50" align="right"}
 
@@ -62,7 +62,31 @@ Data
 
 ![](images/demo-latency.png){:relative_height="90"}
 
-# How introduce fulltext search?
+# Why fast?
+
+![](images/inversed-index-add-1.png){:relative_width="80"}
+
+# Why fast?
+
+![](images/inversed-index-add-2.png){:relative_width="80"}
+
+# Why fast?
+
+![](images/inversed-index-add-3.png){:relative_width="80"}
+
+# Why fast?
+
+![](images/inversed-index-search-1.png){:relative_width="80"}
+
+# Why fast?
+
+![](images/inversed-index-search-2.png){:relative_width="80"}
+
+# Why fast?
+
+![](images/inversed-index-search-3.png){:relative_width="80"}
+
+# How introduce?
 
 Major ways
 
