@@ -90,11 +90,8 @@ Data
 
 Major ways
 
-Sunspot
-: http://sunspot.github.io/
-
-elasticsearch-ruby
-: https://github.com/elasticsearch/elasticsearch-ruby
+ * Sunspot
+ * elasticsearch-ruby
 
 # Sunspot?
 
@@ -294,9 +291,59 @@ Groonga
 
 # Usage of Droonga
 
-TBD
+~~~
+# base="https://raw.githubusercontent.com/droonga"
+# curl ${base}/droonga-engine/master/install.sh | \
+    bash
+# curl ${base}/droonga-http-server/master/install.sh | \
+    bash
+# droonga-engine-catalog-generate --hosts=node0,node1,node2
+# service droonga-engine start
+# service droonga-http-server start
+~~~
+
+# Usage of Droonga
+
+~~~
+$ endpoint="http://node0:10041"
+$ curl "${endpoint}/d/table_create?name=Store&
+        flags=TABLE_PAT_KEY&key_type=ShortText"
+~~~
 
 # References
+
+Sunspot
+: http://sunspot.github.io/
+
+elasticsearch-ruby
+: https://github.com/elasticsearch/elasticsearch-ruby
+
+# References
+
+Apache Lucene
+: http://lucene.apache.org/
+
+Apache Solr
+: http://lucene.apache.org/solr/
+
+Elasticsearch
+: http://www.elasticsearch.org/overview/elasticsearch/
+
+# References
+
+Groonga
+: http://groonga.org/
+
+Rroonga
+: http://ranguba.org/
+
+Droonga
+: http://droonga.org/
+
+# References
+
+GrnMini
+: https://github.com/ongaeshi/grn_mini
 
 Comparison of PostgreSQL, pg_bigm and PGroonga
 : http://blog.createfield.com/entry/2015/02/03/094940
