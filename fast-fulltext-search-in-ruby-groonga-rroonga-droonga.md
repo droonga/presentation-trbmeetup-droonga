@@ -115,10 +115,15 @@ and *Rroonga*
 
 # Groonga
 
-Two usecases
+Different usecases
 
- * HTTP server (Groonga)
- * In-process database library (libgroonga)
+Groonga
+: * Command line tool
+  * HTTP server
+
+libgroonga
+: * In-process database library
+
 
 # *R*roonga
 
