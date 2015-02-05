@@ -113,8 +113,16 @@ and *Rroonga*
  * Read/write lock-free
  * Originally designed to search increasing huge numbers of comments (like Twitter)
 
+# Groonga
+
+Two usecases
+
+ * HTTP server (Groonga)
+ * In-process database library (libgroonga)
+
 # *R*roonga
 
+ * Based on libgroonga
  * Low-level binding of Groonga for *Ruby* (including a Ruby native extension)
  * Available for your applications like as "better SQLite"
 
@@ -127,6 +135,8 @@ and *Rroonga*
 ~~~
 % sudo gem install rroonga
 ~~~
+
+Groonga (libgroonga) is also installed as a part of the package.
 
 # Usage of Rroonga
 
