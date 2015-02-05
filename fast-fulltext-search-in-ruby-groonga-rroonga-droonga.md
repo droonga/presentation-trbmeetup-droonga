@@ -30,7 +30,10 @@ theme
 
 What's *fulltext search*?
 
-# `LIKE` operator in SQL
+# Searching without index
+
+ex. `Array#grep`
+ex. `LIKE` operator in SQL
 
 ~~~
 SELECT name,location
@@ -38,8 +41,7 @@ SELECT name,location
  WHERE name LIKE '%Tokyo%';
 ~~~
 
- * Easy, simple
- * Slow
+ * easy, simple, but *slow*
 
 # Fulltext search with indexing
 
@@ -47,13 +49,22 @@ SELECT name,location
 
  * Fast!!
 
-# 10,000 records from Wikipedia(ja)
+# Demonstration
 
- * Simple `LIKE`: 1.3sec. per query
- * Fulltext search: 0.02-0.07sec. per query
- * *x20 faster!!*
+Methods
+: * `Array#grep` (not indexed)
+  * `GrnMini::Array#select` (indexed)
 
-# How introduce into your Ruby product?
+Data
+: * Wikipedia(ja) pages
+
+# Demonstration: Result
+
+![](images/demo-latency.png){:relative_height="90"}
+
+# How introduce fulltext search?
+
+Major ways
 
 Sunspot
 : http://sunspot.github.io/
