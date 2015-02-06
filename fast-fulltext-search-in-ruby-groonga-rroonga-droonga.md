@@ -358,6 +358,15 @@ $ curl "${endpoint}/d/table_create?name=Store&
  * You can introduce fast fulltext search into your Ruby product easily, by a gem package, *"rroonga"* or *"grn_mini"*.
  * For increasing load, there is one more choice *Droonga*.
 
+# More...?
+
+ * *M*roonga
+   * Works as an add-on for MySQL/MariaDB
+   * Becomes the backend of "LIKE" operator!
+ * *PG*roonga
+   * Works as an add-on for PostgreSQL
+
+
 # References
 
 Sunspot
@@ -396,6 +405,13 @@ GrnMini
 Comparison of PostgreSQL, pg_bigm and PGroonga
 : http://blog.createfield.com/entry/2015/02/03/094940
 
+# References
+
+Mroonga
+: http://mroonga.org/
+
+PGroonga
+: https://github.com/pgroonga/pgroonga
 
 # Advertisement
 
