@@ -166,8 +166,9 @@ and
  * Realtime indexing
    * Read/write lock-free
    * Parallel updating and searching, without penalty
-   * Returns latest contents ASAP
+   * Returns latest result ASAP
  * No transaction
+   * Not designed to store critical data
 
 # Relations of services
 
@@ -363,7 +364,7 @@ $ curl "${endpoint}/d/table_create?name=Store&
 ~~~
 
 
-# Other chices
+# More chices
 
  * *M*roonga
    * Add-on for *MySQL/MariaDB*
@@ -411,24 +412,24 @@ Groonga
 Rroonga
 : http://ranguba.org/
 
-Droonga
-: http://droonga.org/
-
-# References
-
 GrnMini
 : https://github.com/ongaeshi/grn_mini
 
-Comparison of PostgreSQL, pg_bigm and PGroonga
-: http://blog.createfield.com/entry/2015/02/03/094940
-
 # References
+
+Droonga
+: http://droonga.org/
 
 Mroonga
 : http://mroonga.org/
 
 PGroonga
 : https://github.com/pgroonga/pgroonga
+
+# References
+
+Comparison of PostgreSQL, pg_bigm and PGroonga
+: http://blog.createfield.com/entry/2015/02/03/094940
 
 # Advertisement
 
