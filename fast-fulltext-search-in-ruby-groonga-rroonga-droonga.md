@@ -62,27 +62,27 @@ Data
 
 ![](images/demo-latency.png){:relative_height="90"}
 
-# Why fast?
+# Off topic: why fast?
 
 ![](images/inversed-index-add-1.png){:relative_width="80"}
 
-# Why fast?
+# Off topic: why fast?
 
 ![](images/inversed-index-add-2.png){:relative_width="80"}
 
-# Why fast?
+# Off topic: why fast?
 
 ![](images/inversed-index-add-3.png){:relative_width="80"}
 
-# Why fast?
+# Off topic: why fast?
 
 ![](images/inversed-index-search-1.png){:relative_width="80"}
 
-# Why fast?
+# Off topic: why fast?
 
 ![](images/inversed-index-search-2.png){:relative_width="80"}
 
-# Why fast?
+# Off topic: why fast?
 
 ![](images/inversed-index-search-3.png){:relative_width="80"}
 
@@ -396,3 +396,13 @@ GrnMini
 Comparison of PostgreSQL, pg_bigm and PGroonga
 : http://blog.createfield.com/entry/2015/02/03/094940
 
+
+# Advertisement
+
+![](images/syskan.jpg){:relative_width="40" align="right"}
+
+ * 2015.2.18
+   Release
+ * ￥1728
+   (tax-inclusive)
+ * Paper/Kindle
