@@ -150,7 +150,7 @@ and
 # Groonga
 
  * Fast fulltext search engine written in *C++*
- * Originally designed to search increasing huge numbers of comments (like Twitter)
+ * Originally designed to search increasing huge numbers of comments in "2ch" (like Twitter)
 
 # Groonga
 
@@ -158,34 +158,64 @@ and
    * Read/write lock-free
    * Parallel updating and searching, without penalty
    * Returns latest contents ASAP
- * No transaction, fragile
+ * No transaction
 
-# Groonga
+# Relations of services
 
-Different usecases
+![](images/application-with-groonga.png){:relative_width="80"}
 
-Groonga as a server
-: * Command line tool
-  * HTTP server
+# Groonga's interfaces
+
+via command line interface
+
+~~~
+$ groonga="groonga /path/to/database/db"
+$ $groonga table_create --name Entries
+    --flags TABLE_PAT_KEY --key_type ShortText
+$ $groonga select --table Entries
+                  --query "title:@Ruby"
+~~~
+
+# Groonga's interfaces
+
+via HTTP
+
+~~~
+$ groonga -d --protocol http --port 10041
+                            /path/to/database/db
+
+$ endpoint="http://groonga:10041"
+$ curl "${endpoint}/d/table_create?name=Entries&
+          flags=TABLE_PAT_KEY&key_type=ShortText"
+$ curl "${endpoint}/d/select?table=Entries&
+                          query=title:@Ruby"
+~~~
+
+# Groonga's interfaces
+
+Narrowly-defined "Groonga"
+: * CLI or server
 
 libgroonga
 : * In-process library
+  * Like as "better SQLite"
 
+# Groonga
+
+![](images/groonga.png){:relative_height="90"}
+
+# *R*roonga
+
+![](images/groonga-rroonga.png){:relative_height="90"}
 
 # *R*roonga
 
  * Based on libgroonga
  * Low-level binding of Groonga for *Ruby*
- * Works like as "better SQLite"
-   for your application
-
-# Groonga and Rroonga
-
-![](images/groonga-rroonga.png){:relative_height="90"}
 
 # Relations of services
 
-![](images/application-with-groonga.png){:relative_width="80"}
+![](images/application-with-groonga-rroonga.png){:relative_width="80"}
 
 # Usage of Rroonga
 
@@ -249,10 +279,10 @@ end
 
 # FYI: GrnMini
 
- * Lightweight wrapper for Rroonga
- * Limited features, easy to use
- * Good first step to try fulltext search on your Ruby product
-
+ * Lightweight wrapper
+   for Rroonga
+ * Limited features,
+   but easy to use
 
 # FYI: GrnMini
 
@@ -263,20 +293,22 @@ GrnMini::create_or_open("/tmp/bookmarks.db")
 
 items = GrnMini::Array.new("Items")
 items << { url:   "http://en.wikipedia.org/wiki/Ruby",
-           title: "Wikipedia" }
+           title: "Ruby - Wikipedia" }
 items << { url:   "http://www.ruby-lang.org/",
-           title: "Ruby" }
+           title: "Ruby Language" }
 
-ruby_items = items.select("title:Ruby")
+ruby_items = items.select("title:@Ruby")
 ~~~
 
-# *D*roonga
+Good first step to try fulltext search in your Ruby product.
+
+# For much more load...
 
 Groonga
-: works with single process on a computer
+: works with *single process* on a computer
 
 *D*roonga
-: works with multiple computers constructiong a Droonga cluster
+: works with *multiple computers* constructiong a Droonga cluster
 
 # Droonga
 
@@ -297,6 +329,8 @@ Groonga
 
 # Usage of Droonga
 
+Setup a Droonga node
+
 ~~~
 # base="https://raw.githubusercontent.com/droonga"
 # curl ${base}/droonga-engine/master/install.sh | \
@@ -310,11 +344,19 @@ Groonga
 
 # Usage of Droonga
 
+Fulltext search via HTTP
+(compatible to Groonga)
+
 ~~~
 $ endpoint="http://node0:10041"
 $ curl "${endpoint}/d/table_create?name=Store&
         flags=TABLE_PAT_KEY&key_type=ShortText"
 ~~~
+
+# Conclusion
+
+ * You can introduce fast fulltext search into your Ruby product easily, by a gem package, *"rroonga"* or *"grn_mini"*.
+ * For increasing load, there is one more choice *Droonga*.
 
 # References
 
