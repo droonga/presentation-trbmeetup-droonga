@@ -149,7 +149,7 @@ and
 
 # Groonga
 
- * Fast fulltext search engine written in *C++*
+ * Fast fulltext search engine written in *C*
  * Originally designed to search increasing huge numbers of comments in "2ch" (like Twitter)
 
 # Groonga
