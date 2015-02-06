@@ -28,7 +28,8 @@ theme
 
 # Introduction
 
-What's *fulltext search*?
+What's
+*fulltext search*?
 
 # Searching without index
 
@@ -85,6 +86,14 @@ Data
 # Off topic: why fast?
 
 ![](images/inversed-index-search-3.png){:relative_width="80"}
+
+# Off topic: why fast?
+
+![](images/tokenize-bigram.png){:relative_height="90"}
+
+# Off topic: why fast?
+
+![](images/tokenize-mecab.png){:relative_height="90"}
 
 # How introduce?
 
@@ -353,22 +362,27 @@ $ curl "${endpoint}/d/table_create?name=Store&
         flags=TABLE_PAT_KEY&key_type=ShortText"
 ~~~
 
-# Conclusion
 
- * You can introduce fast fulltext search into your Ruby product easily, by a gem package, *"rroonga"* or *"grn_mini"*.
- * For increasing load, there is one more choice *Droonga*.
-
-# More...
+# Other chices
 
  * *M*roonga
-   * Works as an add-on for MySQL/MariaDB
-   * Becomes the backend of "LIKE" operator!
+   * Add-on for *MySQL/MariaDB*
+     (Bundled to MariaDB by default)
+   * Becomes the backend of "LIKE" operator
  * *PG*roonga
-   * Works as an add-on for PostgreSQL
+   * Add-on for *PostgreSQL*
 
 # Relations of services
 
 ![](images/mroonga-pgroonga.png){:relative_width="80"}
+
+
+# Conclusion
+
+ * *Rroonga* (and *GrnMini*) introduces fast fulltext search into your Ruby product instantly
+ * *Droonga* for increasing load
+ * *Mroonga* and *PGroonga*
+   for existing RDBMS
 
 # References
 
