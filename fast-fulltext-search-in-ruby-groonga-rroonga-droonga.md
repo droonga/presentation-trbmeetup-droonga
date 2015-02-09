@@ -391,7 +391,8 @@ Mroonga
 ~~~
 SELECT name,location
   FROM Store
- WHERE MATCH(name) AGAINST('東京');
+ WHERE MATCH(name)
+     AGAINST('+東京' IN BOOLEAN MODE);
 ~~~
 {: lang="sql"}
 
