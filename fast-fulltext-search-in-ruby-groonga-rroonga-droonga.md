@@ -105,8 +105,12 @@ Major ways
 
 # Sunspot?
 
-A client library of *Solr* for
-Ruby and Rails (ActiveRecord)
+A client library of
+*Solr*
+for Ruby and Rails
+(ActiveRecord)
+
+# Sunspot: Usage
 
 ~~~
 class Post < ActiveRecord::Base
@@ -230,7 +234,7 @@ libgroonga
 
 ![](images/application-with-groonga-rroonga.png){:relative_width="80"}
 
-# Usage of Rroonga
+# Usage: Install
 
 ~~~
 % sudo gem install rroonga
@@ -238,37 +242,39 @@ libgroonga
 
 Groonga (libgroonga) is also installed as a part of the package.
 
-# Usage of Rroonga
-
-Schema definition
+# Usage: Prepare
 
 ~~~
 require "groonga"
 
 Groonga::Database.create(path: "/tmp/bookmark.db")
-Groonga::Schema.create_table("Items",
-                             type:     :hash,
-                             key_type: "ShortText") do |table|
-  table.text("title")
-end
-Groonga::Schema.create_table("Terms",
-                             type:              :patricia_trie,
-                             normalizer:        :NormalizerAuto,
-                             default_tokenizer: "TokenBigram") do |table|
- table.index("Items.title")
+# Or
+Groonga::Database.open("/tmp/bookmark.db")
+~~~
+{: lang="ruby"}
+
+# Usage: Schema
+
+~~~
+Groonga::Schema.create do |schema|
+  schema.create_table("Items",
+                      type:     :hash,
+                      key_type: "ShortText") do |table|
+    table.text("title")
+  end
+  schema.create_table("Terms",
+                      type:              :patricia_trie,
+                      normalizer:        "NormalizerAuto",
+                      default_tokenizer: "TokenBigram") do |table|
+   table.index("Items.title")
+  end
 end
 ~~~
 {: lang="ruby"}
 
-# Usage of Rroonga
-
-Data loading
+# Usage: Data loading
 
 ~~~
-require "groonga"
-
-Groonga::Database.open("/tmp/bookmark.db")
-
 items = Groonga["Items"]
 items.add("http://en.wikipedia.org/wiki/Ruby",
           title: "Wikipedia")
@@ -277,15 +283,9 @@ items.add("http://www.ruby-lang.org/",
 ~~~
 {: lang="ruby"}
 
-# Usage of Rroonga
-
-Fulltext search
+# Usage: Fulltext search
 
 ~~~
-require "groonga"
-
-Groonga::Database.open("/tmp/bookmark.db")
-
 items = Groonga["Items"]
 ruby_items = items.select do |record|
   record.title =~ "Ruby"
@@ -300,7 +300,7 @@ end
  * Limited features,
    but easy to use
 
-# FYI: GrnMini
+# FYI: GrnMini: Code
 
 ~~~
 require "grn_mini"
