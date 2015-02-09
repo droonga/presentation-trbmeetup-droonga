@@ -41,6 +41,7 @@ SELECT name,location
   FROM Store
  WHERE name LIKE '%Tokyo%';
 ~~~
+{: lang="sql"}
 
  * easy, simple, but *slow*
 
@@ -110,15 +111,16 @@ Ruby and Rails (ActiveRecord)
 ~~~
 class Post < ActiveRecord::Base
   searchable do
-    ...
+    # ...
   end
 end
 
 result = Post.search do
   fulltext 'best pizza'
-  ...
+  # ...
 end
 ~~~
+{: lang="ruby"}
 
 # elasticsearch-ruby?
 
@@ -130,6 +132,7 @@ client.transport.reload_connections!
 client.cluster.health
 client.search(q: "test")
 ~~~
+{: lang="ruby"}
 
 # Relations of services
 
@@ -255,6 +258,7 @@ Groonga::Schema.create_table("Terms",
  table.index("Items.title")
 end
 ~~~
+{: lang="ruby"}
 
 # Usage of Rroonga
 
@@ -271,6 +275,7 @@ items.add("http://en.wikipedia.org/wiki/Ruby",
 items.add("http://www.ruby-lang.org/",
           title: "Ruby")
 ~~~
+{: lang="ruby"}
 
 # Usage of Rroonga
 
@@ -286,6 +291,7 @@ ruby_items = items.select do |record|
   record.title =~ "Ruby"
 end
 ~~~
+{: lang="ruby"}
 
 # FYI: GrnMini
 
@@ -309,6 +315,7 @@ items << { url:   "http://www.ruby-lang.org/",
 
 ruby_items = items.select("title:@Ruby")
 ~~~
+{: lang="ruby"}
 
 Good first step to try fulltext search in your Ruby product.
 
