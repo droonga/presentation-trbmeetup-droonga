@@ -105,7 +105,7 @@ Major ways
 
 # Sunspot?
 
-A binding of *Solr* for
+A client library of *Solr* for
 Ruby and Rails (ActiveRecord)
 
 ~~~
