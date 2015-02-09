@@ -376,7 +376,6 @@ $ curl "${endpoint}/d/table_create?name=Store&
  * *M*roonga
    * Add-on for *MySQL/MariaDB*
      (Bundled to MariaDB by default)
-   * Becomes the backend of "LIKE" operator
  * *PG*roonga
    * Add-on for *PostgreSQL*
 
