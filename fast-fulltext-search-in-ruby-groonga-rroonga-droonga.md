@@ -175,7 +175,7 @@ and
    * Parallel updating and searching, without penalty
    * Returns latest result ASAP
  * No transaction
-   * Not designed to store critical data
+   * No warranty for data consistency
 
 # Relations of services
 
