@@ -256,7 +256,7 @@ Groonga::Database.open("/tmp/bookmark.db")
 # Usage: Schema
 
 ~~~
-Groonga::Schema.create do |schema|
+Groonga::Schema.define do |schema|
   schema.create_table("Items",
                       type:     :hash,
                       key_type: "ShortText") do |table|
