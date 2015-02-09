@@ -384,6 +384,34 @@ $ curl "${endpoint}/d/table_create?name=Store&
 ![](images/mroonga-pgroonga.png){:relative_width="80"}
 
 
+# SQL w/ fulltext search
+
+Mroonga
+
+~~~
+SELECT name,location
+  FROM Store
+ WHERE MATCH(name) AGAINST('東京');
+~~~
+{: lang="sql"}
+
+
+# SQL w/ fulltext search
+
+PGroonga
+
+~~~
+SELECT name,location
+  FROM Store
+ WHERE name %% '東京';
+
+SELECT name,location
+  FROM Store
+ WHERE name @@ '東京 OR 大阪';
+~~~
+{: lang="sql"}
+
+
 # Conclusion
 
  * *Rroonga* (and *GrnMini*) introduces fast fulltext search into your Ruby product instantly
