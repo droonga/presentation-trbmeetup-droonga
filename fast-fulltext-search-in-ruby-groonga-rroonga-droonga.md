@@ -44,7 +44,7 @@ SELECT name,location
 
  * easy, simple, but *slow*
 
-# Fulltext search with index
+# Fulltext search w/ index
 
 ![](images/latency.png){:relative_width="60" align="right"}
 
