@@ -461,7 +461,7 @@ Mroonga
 : http://mroonga.org/
 
 PGroonga
-: https://github.com/pgroonga/pgroonga
+: http://pgroonga.github.io/
 
 # References
 
