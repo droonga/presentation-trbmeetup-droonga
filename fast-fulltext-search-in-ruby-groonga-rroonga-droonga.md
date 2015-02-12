@@ -47,7 +47,7 @@ SELECT name,location
 
 # Fulltext search w/ index
 
-![](images/latency.png){:relative_width="60" align="right"}
+![](images/latency.png){:relative_width="60" align="right" relative_margin_right="-10"}
 
  * Fast!!
 
@@ -470,8 +470,10 @@ Comparison of PostgreSQL, pg_bigm and PGroonga
 
 # Advertisement
 
-![](images/syskan.jpg){:relative_width="40" align="right"}
+![](images/syskan.jpg){:relative_width="40" align="right" relative_margin_right="-10"}
 
+ * Serial comic
+   at Nikkei Linux
  * 2015.2.18
    Release
  * ￥1728
