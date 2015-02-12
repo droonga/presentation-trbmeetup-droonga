@@ -403,12 +403,14 @@ PGroonga
 
 ~~~
 SELECT name,location
-  FROM Store
- WHERE name %% '東京';
+  FROM Store WHERE name %% '東京';
 
 SELECT name,location
-  FROM Store
- WHERE name @@ '東京 OR 大阪';
+  FROM Store WHERE name @@ '東京 OR 大阪';
+
+SELECT name,location
+  FROM Store WHERE name LIKE '%東京%';
+/* alias to "name @@ '東京'"*/
 ~~~
 {: lang="sql"}
 
