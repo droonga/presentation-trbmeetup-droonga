@@ -371,7 +371,7 @@ $ curl "${endpoint}/d/table_create?name=Store&
 ~~~
 
 
-# More chices
+# More choices
 
  * *M*roonga
    * Add-on for *MySQL/MariaDB*
