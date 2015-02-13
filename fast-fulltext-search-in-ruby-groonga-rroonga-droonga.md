@@ -266,7 +266,7 @@ Groonga::Schema.define do |schema|
                       type:              :patricia_trie,
                       normalizer:        "NormalizerAuto",
                       default_tokenizer: "TokenBigram") do |table|
-   table.index("Items.title")
+    table.index("Items.title")
   end
 end
 ~~~
