@@ -410,7 +410,7 @@ SELECT name,location
 
 SELECT name,location
   FROM Store WHERE name LIKE '%東京%';
-/* alias to "name @@ '東京'"*/
+/* alias to "name %% '東京'"*/
 ~~~
 {: lang="sql"}
 
